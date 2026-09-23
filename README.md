@@ -1,3 +1,4 @@
+![CI](https://github.com/AnnanyaSood1/guardstate/actions/workflows/ci.yml/badge.svg)
 # guardstate
 
 **A Rust-side atomic-context typestate analyzer for detecting sleep-in-atomic
