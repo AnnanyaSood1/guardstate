@@ -1,0 +1,7 @@
+fn driver_safe_call
+bb0:
+  g0 = acquire spin_lock
+  call rust_helper_readl -> bb1
+bb1:
+  drop g0
+  ret

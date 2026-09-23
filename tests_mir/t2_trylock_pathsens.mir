@@ -1,0 +1,9 @@
+fn driver_try
+bb0:
+  try g0 = spin_lock -> bb1 bb2
+bb1:
+  call rust_helper_mutex_lock -> bb3
+bb2:
+  call rust_helper_mutex_lock -> bb3
+bb3:
+  ret

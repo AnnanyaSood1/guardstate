@@ -1,0 +1,7 @@
+== atomic-context at FFI call sites ==
+driver_forget::bb1 -> rust_helper_mutex_lock       [ATOMIC-HELD]
+
+== sleep-in-atomic violations (State=AtomicHeld & callee=CanSleep) ==
+VIOLATION driver_forget::bb1 calls rust_helper_mutex_lock while holding atomic context
+
+summary: 1 call site(s), 1 violation(s)

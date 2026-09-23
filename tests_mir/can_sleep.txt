@@ -1,0 +1,4 @@
+# CanSleep callee symbols produced by the C-side Sleepability pass.
+rust_helper_mutex_lock
+rust_helper_krealloc_gfp_kernel
+schedule

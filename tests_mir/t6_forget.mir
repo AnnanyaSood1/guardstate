@@ -1,0 +1,8 @@
+fn driver_forget
+bb0:
+  g0 = acquire spin_lock
+  forget_call g0 -> bb1
+bb1:
+  call rust_helper_mutex_lock -> bb2
+bb2:
+  ret

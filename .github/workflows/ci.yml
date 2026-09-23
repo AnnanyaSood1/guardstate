@@ -1,0 +1,39 @@
+# SPDX-License-Identifier: GPL-2.0
+# CI for guardstate: build and run the golden-file test suite on every push/PR.
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  test:
+    name: build & test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Rust (stable)
+        uses: dtolnay/rust-toolchain@stable
+      - name: Build
+        run: cargo build --verbose
+      - name: Run test suite
+        run: |
+          chmod +x run_tests.sh
+          ./run_tests.sh
+
+  lint:
+    name: fmt & clippy (advisory)
+    runs-on: ubuntu-latest
+    # Advisory only: formatting/lint issues report but never block the build.
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Rust (stable) with rustfmt and clippy
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - name: Format check
+        run: cargo fmt --all -- --check
+      - name: Clippy
+        run: cargo clippy --all-targets

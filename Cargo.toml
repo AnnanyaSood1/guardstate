@@ -1,0 +1,14 @@
+[package]
+name = "guardstate"
+version = "0.1.0"
+edition = "2021"
+authors = ["Annanya Sood <annanyas0142@gmail.com>"]
+description = "Rust-side atomic-context typestate analyzer for detecting sleep-in-atomic violations at the Rust-to-C FFI boundary (the Rust half of CLSC)."
+license = "GPL-2.0"
+readme = "README.md"
+keywords = ["static-analysis", "linux-kernel", "rust-for-linux", "typestate", "program-analysis"]
+categories = ["development-tools"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]

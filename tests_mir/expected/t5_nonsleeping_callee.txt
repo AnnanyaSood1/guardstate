@@ -1,0 +1,7 @@
+== atomic-context at FFI call sites ==
+driver_safe_call::bb0 -> rust_helper_readl            [ATOMIC-HELD]
+
+== sleep-in-atomic violations (State=AtomicHeld & callee=CanSleep) ==
+(none)
+
+summary: 1 call site(s), 0 violation(s)

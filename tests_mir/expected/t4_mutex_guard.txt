@@ -1,0 +1,7 @@
+== atomic-context at FFI call sites ==
+driver_mutex::bb0 -> rust_helper_mutex_lock       [SLEEPABLE]
+
+== sleep-in-atomic violations (State=AtomicHeld & callee=CanSleep) ==
+(none)
+
+summary: 1 call site(s), 0 violation(s)

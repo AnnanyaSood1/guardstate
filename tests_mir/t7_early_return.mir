@@ -1,0 +1,13 @@
+fn driver_qmark
+bb0:
+  g0 = acquire spin_lock
+  goto bb_check
+bb_check:
+  try t0 = spin_lock -> bb_main bb_err
+bb_err:
+  drop g0
+  call rust_helper_mutex_lock -> bb_ret
+bb_main:
+  call rust_helper_mutex_lock -> bb_ret
+bb_ret:
+  ret

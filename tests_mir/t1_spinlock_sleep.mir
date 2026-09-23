@@ -1,0 +1,7 @@
+fn driver_write
+bb0:
+  g0 = acquire spin_lock
+  call rust_helper_mutex_lock -> bb1
+bb1:
+  drop g0
+  ret
