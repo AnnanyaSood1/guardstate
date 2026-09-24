@@ -18,6 +18,8 @@ join decides the boundary-spanning bug that neither half can see alone.
 
 ---
 
+**Successor project.** A workspace-refactored generalization that runs the same lattice over real rustc MIR is in active development at guardstate-mir. This repository remains the completed, self-contained proof of the analysis logic.
+
 ## Table of contents
 
 - [Motivation: the split-invariant problem](#motivation-the-split-invariant-problem)
