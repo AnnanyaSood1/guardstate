@@ -36,7 +36,7 @@ join decides the boundary-spanning bug that neither half can see alone.
 - [Roadmap](#roadmap)
 - [Relationship to the C-side artifact](#relationship-to-the-c-side-artifact)
 - [References](#references)
-- [Authorship, license, and citation](#author-license-and-citation)
+- [Authorship, license, and citation](#authorship-license-and-citation)
 
 ---
 
