@@ -36,6 +36,7 @@ join decides the boundary-spanning bug that neither half can see alone.
 - [Roadmap](#roadmap)
 - [Relationship to the C-side artifact](#relationship-to-the-c-side-artifact)
 - [References](#references)
+- [Authorship, license, and citation](#author-license-and-citation)
 
 ---
 
@@ -388,9 +389,28 @@ See the research proposal for the full bibliography and the CLSC design.
 
 ---
 
-## Author, license, and citation
+## Authorship, license, and citation
 
-**Author:** Annanya Sood &lt;annanyas0142@gmail.com&gt;
+**Author:** Annanya Sood — <annanyas0142@gmail.com>
+
+I scoped this project and own its design. The decisions are mine: to implement
+the Rust half and the join, so that the two artifacts share a contract — the
+summary file — and together demonstrate the split invariant end to end; to
+represent the abstract state as the *set* of live preemption-disabling guards
+rather than a single bit, so nested guards drop precisely; to take the union at
+control-flow merges, which is the sound direction for a detector; to key guard
+liveness on drop and `StorageDead` points rather than lexical scope; to treat
+`mem::forget` conservatively, since the guard's `Drop` never runs and preemption
+stays disabled; to make conditional acquisition path-sensitive so `try_lock`
+fires only where it succeeded; and to prove the lattice on MIR-shaped input,
+symmetric to how the C-side pass is proven on kernel-shaped `.c` files, rather
+than claiming a `rustc` frontend the artifact does not have. Each of the seven
+tests isolates one behaviour of the lattice, with a near-miss control for
+precision.
+
+The implementation was written with AI assistance (Claude, by Anthropic) working
+to that direction. I can account for each component and the reasoning behind it,
+and I take responsibility for the artifact as published.
 
 **License:** GPL-2.0 (see [`LICENSE`](LICENSE)). GPL-2.0 is chosen to match the
 Linux kernel, since this work targets Rust-for-Linux. Each source file carries an
